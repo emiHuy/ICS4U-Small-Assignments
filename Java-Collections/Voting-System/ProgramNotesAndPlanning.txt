@@ -1,0 +1,34 @@
+Main Class:
+- Takes input for number of candidates, candidate names, and votes and handles bullet-proofing.
+    - Candidate names → for loop (already know number of candidates)
+    - Votes → do… while loop (undetermined number of votes)
+- Will call on classes and objects in sequential order, as needed
+- Reuses error-handling/bullet-proofing methods (preferably)
+
+Candidate Class:
+- Models a candidate
+- Creates a private static candidatesList (ArrayList) that will hold all Candidate instances
+    - uses an array list for dynamic resizing; they are also easy to manipulate
+- Private instance attributes: name (String), id (int)
+- Private method: adding candidate to list - will be called when instance is created (in constructor method)
+- Public methods: will need getters for name, id, and candidatesList; could use setter for name
+
+Vote Class:
+- Models a vote. Responsible for managing votes and tallying them to the corresponding candidates
+- Private attribute: votedCandidateIndex --> Computed from the candidate id/vote
+- Will have a private static LinkedHashMap, voteCollection, to associate candidates to the number of votes they received
+    - LinkedHashMap retains the order in which the collection was created (sorted by increased id)
+    - uses candidatesList from Candidate class to get candidates
+- Private static number of votes to keep track of the number of votes entered
+- Private method: adding vote to corresponding candidate; will be called in constructor method
+- Public methods: initialize (to set up LinkedHashMap), and getters for voteCollection (LinkedHashMap) and number of votes
+
+Winner Class:
+- Determines winners based on number of votes (
+    - will use the LinkedHashMap collection from the Vote class
+- Private static linkedList winners
+    - linkedList allows for the addition of winners
+- Private Method: findWinner() runs the code logic that determines the winner; it is called when winner instance is called
+- Public method:
+    - toString() to return the correctly formatted string for display the winner(s)' information (uses attributes from Candidate class)
+    - Possible getters for winners
